@@ -1,5 +1,7 @@
 const express = require('express');
 
+const cors = require('cors');
+
 require('dotenv').config();
 
 require('./database/mongodb');
@@ -7,6 +9,11 @@ require('./database/mongodb');
 const userController = require('./routes/user');
 
 const app = express();
+
+app.use(cors({
+	origin: '*',
+	methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
 
 app.use(express.json());
 
