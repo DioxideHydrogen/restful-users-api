@@ -49,14 +49,14 @@ exports.store = async (req, res) => {
 
 }
 
-exports.show = (req, res) => {
-
+exports.show = async (req, res) => {
 	try {
-		const data = User.findById(req.params.id);
-		res.status(200).json(data);
+		const data = await User.findById(req.params.id);
+		res.status(200).json(data || {});
 	}
 	catch (err) {
 		res.status(500).json({ message: err.message });
+		throw err;
 	}
 
 }
@@ -68,10 +68,7 @@ exports.update = async (req, res) => {
 		const id = req.params.id;
 
 		const data = {
-			name: req.body.name,
-			email: req.body.email,
-			age: req.body.age,
-			phone: req.body.phone,
+			...req.body,
 			updateAt: Date.now()
 		};
 
