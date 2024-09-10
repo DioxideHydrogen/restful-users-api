@@ -62,4 +62,33 @@ npm start
 
 ### Example
 
-<script src="https://gist.github.com/DioxideHydrogen/c9c1fd2e4177dbe845f80a3d62814d57.js"></script>
+```javascript
+const createNewUser = async () => {
+    
+  const userData = {
+    name: 'John Doe',
+    email: 'johndoe@test.com',
+    password: '123456',
+    age: 31,
+    phone: '15553334444'
+  };
+  
+  try {
+      let response = await fetch('http://127.0.0.1:3000/users',{
+        method: 'POST',
+        headers: {
+          'Content-Type':'application/json'
+        },
+        body: JSON.stringify(userData)
+      });
+      
+     const user = await response.json();
+    
+     console.log(user);
+    
+  } catch(err){
+    console.log(err);
+  }
+  
+}
+```
