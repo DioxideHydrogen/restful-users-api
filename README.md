@@ -6,6 +6,8 @@
 ) ![Mocha](https://img.shields.io/badge/Mocha-8D6748?style=for-the-badge&logo=Mocha&logoColor=white
 )
 
+![testsWorkflow](https://github.com/DioxideHydrogen/restful-users-api/actions/workflows/runTests.yml/badge.svg)
+
 A simple restful api for user management.
 
 ## Table of Contents

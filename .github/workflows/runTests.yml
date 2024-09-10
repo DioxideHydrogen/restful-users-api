@@ -1,4 +1,4 @@
-name: Run tests for API Routes
+name: API Routes Tests
 run-name: ${{ github.actor }} is testing ${{ github.repository }}
 
 on:
